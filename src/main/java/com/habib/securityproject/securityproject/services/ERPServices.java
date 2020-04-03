@@ -80,5 +80,29 @@ public class ERPServices {
         return roles;
     }
 
+    public ResponseEntity<String> addStudent(AddStudent addStudent) {
+        StudentInfoModel studentInfoModel = new StudentInfoModel();
+        studentInfoModel.setStudentId(addStudent.getStudentId());
+        studentInfoModel.setStudentName(addStudent.getStudentName());
+        studentInfoModel.setBatchNumber(addStudent.getBatchNumber());
+        studentInfoModel.setShift(addStudent.getShift());
+        studentInfoModel.setStudentDept(addStudent.getStudentDept());
+        studentInfoModel.setStudentPhoneNumber(addStudent.getStudentPhoneNumber());
+
+        User student = new User();
+        UUID id = UUID.randomUUID();
+        String uuid = id.toString();
+        student.setId(uuid);
+        student.setUsername(addStudent.getStudentUsername());
+        student.setName(addStudent.getStudentName());
+        student.setEmail(addStudent.getStudentEmail());
+        student.setRoles(getRolesOrThrow(addStudent.getRole()));
+        student.setPassword(encoder.encode(addStudent.getStudentPassword()));
+
+        studentRepository.save(studentInfoModel);
+        userRepository.save(student);
+
+        return new ResponseEntity<>(addStudent.getStudentName()+"'s Id is created",HttpStatus.CREATED);
+    }
 }
 

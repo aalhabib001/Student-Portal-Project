@@ -124,7 +124,8 @@ public class SignUpAndSignInService {
             String username = ((UserDetails) authUser).getUsername();
             loggedInAuthUserId = userRepository.findAuthUsersById(username);
             response.setUsername(userRepository.findByUsername(username).get().getUsername());
-            return response.getUsername();
+            response.setName(userRepository.findByUsername(username).get().getName());
+            return response.getName();
 
         } else if (authUser instanceof UserDetails == false) {
             throw new RuntimeException("LoggedIn user does not  account.");

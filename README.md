@@ -1,20 +1,20 @@
-# Jwt-Spring-boot
-## SignUp
-### /api/auth/signup
+# Student-Portal-Project
+#### SignUp
+##### /api/auth/signup
 ```
 {
-	  "name":"Habib2",
-	  "username":"habib2",
-	  "email":"fdfjdjf@gj.com",
-	  "role":["ADMIN"],
+	  "name":"Habib",
+	  "username":"habib",
+	  "email":"habib@gmail.com",
+	  "role":["SUPER_ADMIN"],
 	  "password":"12211221"
 }
 ```
-## SignIn
-### /api/auth/signin
+#### SignIn
+##### /api/auth/signin
 ```
 {
-	"username" : "habib2",
+	"username" : "habib",
 	"password" : "12211221"
 }
 ```

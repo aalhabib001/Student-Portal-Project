@@ -21,7 +21,6 @@ public class FacultyController {
     }
 
     @PostMapping("/courseOffer")
-//    @Secured("FACULTY")
     public ResponseEntity<String> courseOffer(@RequestBody CourseOffer courseOffer){
         return facultyServices.courseOffer(courseOffer);
     }

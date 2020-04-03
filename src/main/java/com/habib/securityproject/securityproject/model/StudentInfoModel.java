@@ -24,6 +24,8 @@ public class StudentInfoModel {
 
     String batchNumber;
 
+    String studentPhoneNumber;
+
     String shift;
 
     String adviserName;

@@ -24,6 +24,8 @@ public class FacultyServices {
     private  final CourseRepository courseRepository;
     private  final StudentRepository studentRepository;
 
+    private final com.habib.securityproject.securityproject.services.SignUpAndSignInService signUpAndSignInService ;
+
     public ResponseEntity<String> courseOffer(CourseOffer courseOffer) {
         CourseModel courseModel = new CourseModel();
         courseModel.setCourseCode(courseOffer.getCourseCode());
@@ -38,6 +40,7 @@ public class FacultyServices {
         Optional<StudentInfoModel> studentInfoModelOptional = studentRepository.findById(id);
         StudentInfoModel studentInfoModel = studentInfoModelOptional.get();
         studentInfoModel.setCourseModels(getCourseSet(addCourses.getCourseCodes()));
+        studentInfoModel.setAdviserName(signUpAndSignInService.getLoggedAuthUserName());
 
         studentRepository.save(studentInfoModel);
         return new ResponseEntity("Course Added to "+studentInfoModel.getStudentName(),HttpStatus.CREATED);

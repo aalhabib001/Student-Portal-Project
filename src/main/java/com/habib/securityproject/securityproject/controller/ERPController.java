@@ -2,6 +2,7 @@ package com.habib.securityproject.securityproject.controller;
 
 
 import com.habib.securityproject.securityproject.dto.request.AddFaculty;
+import com.habib.securityproject.securityproject.dto.request.AddStudent;
 import com.habib.securityproject.securityproject.services.ERPServices;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,10 @@ import javax.annotation.security.RolesAllowed;
 public class ERPController {
 
     private final ERPServices erpServices;
-//    @PostMapping("/addStudent")
-//    public IdentityResponse addStudent(@RequestBody AddStudent addStudent){
-//        return erpServices.addStudent(addStudent);
-//    }
+    @PostMapping("/addStudent")
+    public ResponseEntity<String> addStudent(@RequestBody AddStudent addStudent){
+        return erpServices.addStudent(addStudent);
+    }
     @PostMapping("/addFaculty")
     public ResponseEntity addFaculty(@RequestBody AddFaculty addFaculty){
 

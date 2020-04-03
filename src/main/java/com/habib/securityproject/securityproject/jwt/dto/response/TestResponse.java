@@ -8,4 +8,5 @@ import lombok.Setter;
 public class TestResponse {
     String username;
     String email;
+    String name;
 }

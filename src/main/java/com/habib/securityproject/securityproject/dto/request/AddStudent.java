@@ -24,6 +24,8 @@ public class AddStudent {
 
     String batchNumber;
 
+    String studentPhoneNumber;
+
     String shift;
 
     @NotBlank
